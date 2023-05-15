@@ -1,0 +1,73 @@
+@import url('./root.css');
+
+/* header -- navbar */
+
+.navbar__wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, .7) 60%, transparent 100%);
+    width: 100%;
+}
+
+.navbar {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+
+    margin: 0 auto;
+    height: 7vh;
+
+    width: 100%;
+}
+
+.navbar__logo-link {
+    padding: 5vh;
+    margin-right: 2vh;
+}
+
+.navbar__about {
+    padding-left: 1vw;
+
+}
+
+.navbar__text {
+    font-family: var(--text-font-family-header);
+    font-weight: 500;
+    font-size: 1.3rem;
+
+    color: var(--white);
+}
+
+.navbar__button-login {
+    margin-left: 50vw;
+}
+
+.navbar__button-help {
+    margin: 0 1vw;
+}
+
+.navbar__button-login,
+.navbar__button-help {
+    height: 3.3vh;
+    border-radius: 10px;
+
+    padding: 0 1vw;
+
+    background-color: var(--milk-white);
+    transition: background-color 0.2s ease-in-out;
+}
+
+.navbar__button-login:hover,
+.navbar__button-help:hover {
+    background-color: var(--button_background);
+    color: var(--milk-white);
+}
+
+.navbar__button-text {
+    font-size: 1.15rem;
+    font-weight: 400;
+    line-height: 1vh;
+    font-family: var(--text-font-family-header);
+}

@@ -1,0 +1,133 @@
+@import url("../root.css");
+
+select {
+    appearance: none;
+    border: none;
+    outline: none;
+}
+
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.form__container {
+    opacity: 1;
+    transform: none;
+
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+
+    box-sizing: border-box;
+}
+
+.form__configuration {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    background-color: var(--milk-white);
+    border-radius: 18px;
+    width: 680px;
+
+    padding-bottom: 10vh;
+    padding-top: 10vh;
+    padding-left: 5.5vh;
+    padding-right: 5.5vh;
+
+    position: relative;
+    height: 100%;
+}
+
+.form__label {
+    font-family: var(--text-unbounded);
+    font-weight: 400;
+    font-size: 1.5rem;
+
+    padding-bottom: 1.3vh;
+}
+
+.form__input {
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    
+    font-size: 1.2rem;
+    font-weight: 400;
+    line-height: 1.5;
+
+    outline: none;
+    box-shadow: none;
+
+    padding-left: 5px;
+    margin-bottom: 10px;
+
+    display: block;
+    width: 60%;
+
+    transition: border-color .15s ease-in-out,
+        box-shadow .15s ease-in-out;
+}
+
+.form__input:focus {
+    border: 1.5px solid var(--button_background);
+}
+
+.form__select {
+    text-align: center;
+
+    min-width: 30ch;
+    max-width: 60ch;
+
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+
+    font-size: 1.2rem;
+    font-weight: 400;
+    line-height: 1.5;
+
+    margin-bottom: 10px;
+
+    display: block;
+    cursor: pointer;
+
+    transition: border-color .15s ease-in-out,
+        box-shadow .15s ease-in-out;
+}
+
+.form__select:focus {
+    border: 1.5px solid var(--button_background);
+}
+
+.form__button {
+    margin-top: 40px;
+
+    height: 4.3vh;
+    width: 12vw;
+    border-radius: 15px;
+
+    font-size: 1.2rem;
+    font-weight: 400;
+    line-height: 1.5;
+
+    padding: 0 1vw;
+
+    background-color: var(--anthracite-gray);
+    color: var(--milk-white);
+    transition: background-color .2s ease-in-out;
+}
+
+.form__button:hover {
+    background-color: var(--button_background);
+    color: var(--milk-white);
+}

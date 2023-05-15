@@ -1,0 +1,89 @@
+* {
+    box-sizing: border-box;
+}
+
+html:root {
+    --white: #fff;
+    --black: #000;
+
+    --anthracite-gray: #293133;
+    --anthracite-gray-rgba: rgba(41, 49, 51, .5);
+    --milk-white: #f2f3f4;
+    
+    --border-color: #cfcece;
+    --color-divider-primary: #3c444f;
+    --color-border-brand: #ff4458;
+    --color--border-gamepad-like-default: #17eb9a;
+    --color--text-inactive: #7c8591;
+    --color--background-secondary: #111418;
+
+    --color-background-nope: #ff4458;
+    --color-background-like: #44ff98;
+
+    --color--background-primary: #000000;
+    --gradient--background-brand-gradient: linear-gradient(35deg, #c1121f, #293133);
+    --gradient--background-brand-gradient-reverse: linear-gradient(35deg, #293133, #c1121f);
+
+    --button_background: #c1121f;
+
+    --text-roboto: "Roboto";
+    --text-unbounded: "Unbounded";
+
+    --text-font-family-header: var(--text-roboto);
+
+    --text-font-family-main: var(--text-unbounded);
+    --text-font-family-main-slider: var(var(--text-roboto));
+
+    --text-font-family-footer-list: var(--text-roboto);
+    --text-font-family-footer-title: var(--text-unbounded);
+
+    --color-text-slide-text: #939ba7;
+    --slide-border-color: #939ba7;
+
+    --color-text-modal: var(--anthracite-gray);
+
+    --text-font-family-modal: var(--text-roboto);
+
+    --side-nav-bar-height: 87px;
+    --color--background-badge-brand-default: var(--color-border-brand);
+}
+
+a {
+    cursor: pointer;
+    text-decoration: none;
+    color: var(--black);
+    touch-action: manipulation;
+}
+
+button {
+    text-decoration: none;
+    cursor: pointer;
+    border: 0;
+
+    color: inherit;
+    background-color: initial;
+    border-style: none;
+}
+
+li {
+    text-decoration: none;
+    list-style: none;
+}
+
+aside {
+    display: block;
+}
+
+div {
+    display: block;
+}
+
+h3 {
+    display: block;
+    font-size: 1.17em;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+}

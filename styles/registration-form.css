@@ -1,0 +1,98 @@
+@import url('./root.css');
+
+.container-modal {
+    opacity: 1;
+    transform: none;
+
+    position: absolute;
+    display: none;
+    justify-content: center;
+    align-items: center;
+
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+
+    box-sizing: border-box;
+}
+
+.--active {
+    display: flex;
+}
+
+.modal__authorization-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    background-color: var(--milk-white);
+    border-radius: 8px;
+    width: 520px;
+
+    padding-bottom: 36px;
+    padding-top: 36px;
+    padding-left: 44px;
+    padding-right: 44px;
+
+    margin: 10px;
+
+    position: relative;
+    height: 100%;
+}
+
+.modal__label {
+    color: var(--color-text-modal);
+    font-family: var(--text-font-family-modal);
+
+    padding-top: 15px;
+    padding-bottom: 20px;
+}
+
+.modal__input {
+    border: 1px solid #cfcece;
+    border-radius: 5px;
+
+    background-color: var(--milk-white);
+    background-clip: border-box;
+    appearance: none;
+
+    padding: 0.5rem!important;
+
+    outline: none;
+    box-shadow: none;
+
+    display: block;
+    width: 60%;
+
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+
+    transition: border-color .15s ease-in-out,
+        box-shadow .15s ease-in-out;
+}
+
+.modal__input:focus {
+    border: 1.5px solid var(--button_background);
+}
+
+.modal__button {
+    margin-top: 20px;
+    
+    height: 4.3vh;
+    width: 10vw;
+    border-radius: 15px;
+
+    padding: 0 1vw;
+
+    background-color: var(--milk-white);
+    transition: background-color 0.2s ease-in-out;
+}
+
+.modal__button:hover { 
+    background-color: var(--button_background);
+    color: var(--milk-white);
+}

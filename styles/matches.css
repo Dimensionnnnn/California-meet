@@ -1,0 +1,46 @@
+@import url(./root.css);
+@import url(./components/matches/matches-card.css);
+@import url(./components/matches/matches-menu.css);
+@import url(./components/matches/matches-messages.css);
+@import url(./components/matches/matches-user-info.css);
+@import url(./components/matches/matches-users-chat.css);
+
+.matches__body {
+    overscroll-behavior-y: none;
+    
+    width: 100%;
+    height: 100%;
+
+    position: fixed;
+
+    padding: 0;
+    margin: 0;
+
+    overflow: hidden;
+}
+
+.matches__container {
+    display: flex;
+    flex-direction: row;
+
+    overflow: hidden;
+    position: relative;
+
+    height: 100%;
+    width: 100%;
+
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.matches__wrapper {
+    flex-basis: 25%;
+    flex-shrink: 0;
+    flex-grow: 0;
+
+    position: relative;
+
+    max-width: 375px;
+    min-width: 325px;
+    height: 100%;
+}

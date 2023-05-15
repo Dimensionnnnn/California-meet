@@ -1,0 +1,56 @@
+@import url('./root.css');
+
+/* footer */
+
+.footer__wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    background-color: #000;
+
+    padding-top: 30px;
+}
+
+.footer__list {
+    padding-right: 10vw;
+}
+
+.footer__list-social {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.footer__list-title {
+    color: var(--white);
+
+    font-size: 1.5em;
+    font-family: var(--text-font-family-footer-title);
+
+    height: 40px;
+}
+
+.footer__list-elem {
+    padding-top: 5px;
+}
+
+.footer__social-elem {
+    padding-right: 20px;
+}
+
+.footer__list-link {
+    color: var(--milk-white);
+
+    font-family: var(--text-font-family-footer-list);
+    font-size: 1em;
+}
+
+.footer__list-link:hover {
+    color: var(--button_background);
+}
+
+.footer_social-img:hover {
+    fill: #c1121f;
+    stroke: #c1121f;
+}
