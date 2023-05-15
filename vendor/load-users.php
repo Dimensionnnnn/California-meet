@@ -11,9 +11,14 @@
     $page = isset($_GET['page']) ? intval($_GET['page']) : 0;
     $limit = 10; // количество пользователей, которые нужно получить
     $offset = $page * $limit; // смещение
-    
+
     // Формируем запрос к базе данных
-    $query = "SELECT * FROM userInfo WHERE userId NOT LIKE $user_id AND userAge BETWEEN {$user_preferences['user_age_from']} AND {$user_preferences['user_age_to']}";
+    $query = "SELECT * FROM userInfo
+    WHERE (userAge BETWEEN {$user_preferences['user_age_from']} AND {$user_preferences['user_age_to']})
+    AND userId NOT IN ( SELECT likedUserId FROM likes WHERE likes.userId LIKE $user_id)
+    AND userId NOT IN ( SELECT user1Id FROM matches )
+    AND userId NOT IN ( SELECT user2Id FROM matches )
+    AND userId <> $user_id";
 
     if ($user_preferences['user_gender'] != 2) {
         $query .= " AND userGender = {$user_preferences['user_gender']}";

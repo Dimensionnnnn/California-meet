@@ -76,16 +76,17 @@ let users = [];
 // Функция для загрузки данных о пользователях из базы данных
 function loadUsers() {
     fetch('./vendor/load-users.php?page=0')
-      .then(response => response.json())
-      .then(data => {
-        // Сохраняем полученные данные
-        users = data;
+        .then(response => response.json())
+        .then(data => {
+            // Сохраняем полученные данные
+            users = data;
 
-        // Обновляем содержимое первой карточки
-        updateCard(card, users[currentIndex]);
-      })
-      .catch(error => console.error(error));
-  }
+            console.log(users);
+            // Обновляем содержимое первой карточки
+            updateCard(card, users[currentIndex]);
+        })
+        .catch(error => console.error(error));
+}
 
 // Функция для обновления содержимого карточки с данными пользователя
 function updateCard(card, user) {
@@ -93,7 +94,7 @@ function updateCard(card, user) {
     card.querySelector('h2').textContent = user.userName;
     card.querySelector('h3').textContent = user.userInfo;
     card.querySelector('p').textContent = user.userAge;
-  }
+}
 
 // Функция для отображения следующей карточки
 function showNextCard() {
@@ -102,7 +103,7 @@ function showNextCard() {
 
     // Увеличиваем индекс текущей карточки
     currentIndex++;
-    
+
     // Если достигнут конец списка пользователей, загружаем данные из базы данных
     if (currentIndex >= users.length) {
         loadUsers();
@@ -115,49 +116,70 @@ function showNextCard() {
 
 showNextCard();
 
-leftButton.addEventListener('click', () => {
+leftButton.addEventListener('click', async () => {
     const activeCard = document.querySelector('.card:not(.swipe-right):not(.swipe-left)');
     if (activeCard) {
         activeCard.classList.add('swipe-left');
         // Отображаем следующую карточку после завершения анимации
         setTimeout(showNextCard, 300);
+
+        deleteCurrentUser(await getUserId(), users[currentIndex].userId);
     }
 });
 
-rightButton.addEventListener('click', () => {
+rightButton.addEventListener('click', async () => {
     const activeCard = document.querySelector('.card:not(.swipe-right):not(.swipe-left)');
     if (activeCard) {
         activeCard.classList.add('swipe-right');
         // Отображаем следующую карточку после завершения анимации 
         setTimeout(showNextCard, 300);
 
-        console.log(sendCurrentUser(getUserId(), users[currentIndex].userId));
+        sendCurrentUser(await getUserId(), users[currentIndex].userId);
     }
 });
 
 async function getUserId() {
     try {
         const response = await fetch('./vendor/user-id.php')
-        return await response.json()
+        const userId = await response.json()
+        return userId['user_id']
     } catch (error) {
         console.log(error)
     }
 }
 
 async function sendCurrentUser(currentUserId, likedUserId) {
-    const currentUserIdResponse = await currentUserId;
+    const url = './vendor/user-choose.php'
+    const body = {
+        user_id: currentUserId,
+        liked_user_id: likedUserId
+    }
     try {
-        const response = await fetch('./vendor/user-choose.php', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                user_id: currentUserIdResponse['user_id'],
-                liked_user_id: likedUserId
-            })
-        })
+        const response = await useFetch(url, 'POST', body)
     } catch (error) {
         console.log(error)
     }
+}
+
+async function deleteCurrentUser(currentUserId, likedUserId) {
+    const url = './vendor/user-delete.php'
+    const body = {
+        user_id: currentUserId,
+        liked_user_id: likedUserId
+    }
+    try {
+        const response = await useFetch(url, 'DELETE', body)
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+function useFetch(url, method, body) {
+    return fetch(url, {
+        method: method,
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(body)
+    })
 }
