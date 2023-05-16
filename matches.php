@@ -1,8 +1,4 @@
-<?php
-session_start();
-// print_r($_COOKIE['user']);
-// print_r($_SESSION['user_id']);
-?>
+<?php session_start();?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -26,11 +22,11 @@ session_start();
 </head>
 
 <body class="matches__body">
-    <?php if (empty($_COOKIE['user'])) header('Location: ../index.php'); ?>
+    <?php if (empty($_COOKIE['user'])) header('Location: /'); ?>
     <div class="matches__container">
         <aside class="matches__wrapper">
             <nav class="matches__user-info">
-                <a class="matches__user-link" href="#">
+                <a class="matches__user-link" onclick="showCurrentUser(`<?= htmlspecialchars(json_encode($_SESSION['user_info'])) ?>`)">
                     <img class="matches__user-img" src="<?= $_SESSION['user_info']['user_img'] ?>" alt="">
                     <h2 class="matches__user-label">
                         <span class="matches__user-name">
@@ -41,7 +37,7 @@ session_start();
             </nav>
             <nav class="matches__users-chat">
                 <div class="matches__height">
-                    <div class="matches__users-wrapper">
+                    <div class="matches__users-wrapper">    
                         <div class="matches__users-buttons">
                             <div class="matches__users-tablist" role="tablist">
                                 <div class="matches__users-pair">
@@ -55,14 +51,16 @@ session_start();
                             </div>
                         </div>
                         <div class="matches__menu">
-                            <div class="matches__menu-wrapper">
-                                <?php require ('./php-components/matches-components/menu-ul.php'); ?>
-                                
-                            </div>
+                            <div class="matches__menu-wrapper"></div>
                             <div class="matches__messages-wrapper">
-                                <div class="matches__messages-list-wrapper">
-                                    <?php require ('./php-components/matches-components/messages-ul.php'); ?>
-                                </div>
+                                <div class="matches__messages-list-wrapper"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="matches__user-profile">
+                        <div class="matches__logout-container">
+                            <div class="matches__logout-wrapper">
+                                <button class="matches__logout" onclick="logout()">Выйти</button>
                             </div>
                         </div>
                     </div>
@@ -83,6 +81,8 @@ session_start();
         </main>
     </div>
     <script async src="./components/matces.js"></script>
+    <script async src="./components/matched-users-li.js"></script>
+    <script async src="./components/matches-user-profile.js"></script>
 </body>
 
 </html>

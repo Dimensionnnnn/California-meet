@@ -4,6 +4,7 @@
 @import url(./components/matches/matches-messages.css);
 @import url(./components/matches/matches-user-info.css);
 @import url(./components/matches/matches-users-chat.css);
+@import url(./components/matches/matches-user-profile.css);
 
 .matches__body {
     overscroll-behavior-y: none;

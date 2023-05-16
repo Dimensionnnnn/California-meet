@@ -6,8 +6,11 @@
     $login = $_POST['login'];
     $password = md5($_POST['password']);
 
-    $check_user = mysqli_query($connect, "SELECT * FROM `user` WHERE `login` = '$login' AND `password` = '$password'");
-    
+    $stmt = mysqli_prepare($connect, "SELECT * FROM `user` WHERE `login` = ? AND `password` = ?");
+    mysqli_stmt_bind_param($stmt, "ss", $login, $password);
+    mysqli_stmt_execute($stmt);
+    $check_user = mysqli_stmt_get_result($stmt);
+
     if (mysqli_num_rows($check_user) == 0) {
         echo('Такой пользователь не найден или введен неверный пароль!');
         exit();
