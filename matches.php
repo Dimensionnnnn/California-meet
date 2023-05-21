@@ -58,6 +58,16 @@
                         </div>
                     </div>
                     <div class="matches__user-profile">
+                        <div class="matches__profile-change-container">
+                            <div class="matches__profile-change-wrapper">
+                                <button class="matches__profile-change">Изменить профиль</button>
+                            </div>
+                        </div>
+                        <div class="matches__profile-preference-container">
+                            <div class="matches__profile-preference-wrapper">
+                                <button class="matches__preference-change">Настроить предпочтения</button>
+                            </div>
+                        </div>
                         <div class="matches__logout-container">
                             <div class="matches__logout-wrapper">
                                 <button class="matches__logout" onclick="logout()">Выйти</button>
@@ -76,6 +86,14 @@
                             <?php require('./php-components/matches-components/matches__button.php') ?>
                         </div>
                     </div>
+                    <div class="matches__form" id="pref-change">
+                        <?php require('./php-components/matches-components/matches-form-pref.php'); ?>
+                    </div>
+                    <div class="matches__form" id="profile-change">
+                        <?php require('./php-components/matches-components/matches-form-profile.php'); ?>
+                    </div>
+                    <div class="matches__form" id="user-chat">
+                    </div>
                 </div>
             </div>
         </main>
@@ -83,6 +101,7 @@
     <script async src="./components/matces.js"></script>
     <script async src="./components/matched-users-li.js"></script>
     <script async src="./components/matches-user-profile.js"></script>
+    <script src="./components/slider-range.js" async></script>
 </body>
 
 </html>

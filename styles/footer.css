@@ -12,6 +12,39 @@
     padding-top: 30px;
 }
 
+.footer__info {
+    display: flex;
+    justify-content: center;
+    text-align: start;
+
+    background-color: #000;
+    color: var(--milk-white);
+}
+
+.footer__info-text-container { 
+    border-style: solid;
+
+    border-bottom-width: 0;
+    border-left-width: 0;
+    border-right-width: 0;
+    border-top-width: 1px;
+    border-top-color: var(--color-text-slide-text);
+
+    width: 70%;
+}
+
+.footer__info-text-wrapper {
+    padding-top: 2vh;
+    padding-bottom: 3vh;
+}
+
+.footer__info-text {
+    font-family: var(--text-roboto);
+    color: var(--color--text-inactive);
+    font-size: 1.2rem;
+    line-height: 1.5rem;
+}
+
 .footer__list {
     padding-right: 10vw;
 }

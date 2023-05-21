@@ -1,0 +1,45 @@
+@import url(../../profile-preferences.css);
+
+.matches__form {
+    overscroll-behavior: none;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    overflow: auto;
+    scrollbar-width: none;
+
+    height: 100%;
+    z-index: 0;
+    width: 100%;
+
+    transition-property: all!important;
+    transition-duration: .2s;
+
+    position: absolute;
+
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+
+    justify-content: center;
+    align-items: center;
+
+    top: 0;
+    bottom: 0;
+
+    transform: translate(-100%);
+    transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+    opacity: 0;
+    pointer-events: none;
+
+    background-color: var(--color--background-secondary, inherit);
+}
+
+.matches__form.show {
+    transform: translate(0);
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.form__configuration{
+    border-radius: 0px;
+}

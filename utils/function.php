@@ -108,3 +108,72 @@
             return $user_data;
         }
     }
+
+    function change_preference($connect, $user_preference) {
+        $query = "UPDATE userPreference SET ";
+
+        $update_fields = [];
+        if ($user_preference['user_age_from'] != -1) {
+            $update_fields[] = "userAgeFrom = " . $user_preference['user_age_from'];
+        }
+
+        if ($user_preference['user_age_to'] != -1) {
+            $update_fields[] = "userAgeTo = " . $user_preference['user_age_to'];
+        }
+
+        if ($user_preference['user_gender'] != -1) {
+            $update_fields[] = "userGender = " . $user_preference['user_gender'];
+        }
+        
+        $query .= implode(',', $update_fields);
+        
+        $query .= " WHERE userId = " . $user_preference['user_id'];
+        
+        $result = mysqli_query($connect, $query);
+    }
+
+    function change_profile($connect, $user_profile) {
+        $query = "UPDATE userInfo SET ";
+
+        $update_fields = [];
+        $types = '';
+        $values = [];
+    
+        if ($user_profile['user_name'] != -1) {
+            $update_fields[] = "userName = ?";
+            $types .= 's';
+            $values[] = $user_profile['user_name'];
+        }
+        if ($user_profile['user_age'] != -1) {
+            $update_fields[] = "userAge = ?";
+            $types .= 'i';
+            $values[] = $user_profile['user_age'];
+        }
+        if ($user_profile['user_info'] != -1) {
+            $update_fields[] = "userInfo = ?";
+            $types .= 's';
+            $values[] = $user_profile['user_info'];
+        }
+        if ($user_profile['user_img'] != -1) {
+            $update_fields[] = "userPhoto = ?";
+            $types .= 's';
+            $values[] = $user_profile['user_img'];
+        }
+    
+        $query .= implode(',', $update_fields);
+    
+        $query .= " WHERE userId = ?";
+    
+        $stmt = mysqli_prepare($connect, $query);
+    
+        // добавляем тип данных для поля userId
+        $types .= 'i';
+        $values[] = $user_profile['user_id'];
+    
+        mysqli_stmt_bind_param($stmt, $types, ...$values);
+        $result = mysqli_stmt_execute($stmt);
+    
+        if ($result) {
+            $_SESSION['user_info'] = get_user_info($connect, $user_profile['user_id']);
+        }
+    }

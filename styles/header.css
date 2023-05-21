@@ -41,15 +41,10 @@
 }
 
 .navbar__button-login {
-    margin-left: 50vw;
+    margin-left: 65vw;
 }
 
-.navbar__button-help {
-    margin: 0 1vw;
-}
-
-.navbar__button-login,
-.navbar__button-help {
+.navbar__button-login {
     height: 3.3vh;
     border-radius: 10px;
 
@@ -59,8 +54,7 @@
     transition: background-color 0.2s ease-in-out;
 }
 
-.navbar__button-login:hover,
-.navbar__button-help:hover {
+.navbar__button-login:hover {
     background-color: var(--button_background);
     color: var(--milk-white);
 }

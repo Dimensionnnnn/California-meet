@@ -28,6 +28,7 @@
 
 <body>
     <header>
+        <?php if (!empty($_COOKIE['user'])) header('Location: /matches.php'); ?>
         <div class="container">
             <div class="navbar__wrapper">
                 <nav class="navbar">
@@ -55,7 +56,7 @@
                     <a class="navbar__products" href="#">
                         <div class="navbar__text">Продукты</div>
                     </a>
-                    <a class="navbar__about" href="#">
+                    <a class="navbar__about" href="./about.php">
                         <div class="navbar__text">О нас</div>
                     </a>
                     <?php if(empty($_COOKIE['user'])): ?>
@@ -69,9 +70,6 @@
                             </button>
                         </a>
                     <?php endif; ?>
-                    <button class="navbar__button-help">
-                        <div class="navbar__button-text">Получить помощь</div>
-                    </button>
                 </nav>
             </div>
         </div>

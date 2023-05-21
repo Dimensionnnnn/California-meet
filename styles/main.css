@@ -12,10 +12,12 @@
 }
 
 .main__button {
-    height: 4vh;
+    height: 5vh;
+    width: 15vw;
     border-radius: 15px;
 
     padding: 0 1vw;
+    margin-top: 5vh;
 
     background-color: var(--milk-white);
     transition: background-color 0.2s ease-in-out;

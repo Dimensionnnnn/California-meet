@@ -44,3 +44,19 @@ async function logout() {
         console.error(error)
     }
 }
+
+const profileChangeButton = document.querySelector('.matches__profile-change');
+const preferenceChangeButton = document.querySelector('.matches__preference-change');
+
+const profileChangeForm = document.getElementById('profile-change');
+const prefChangeForm = document.getElementById('pref-change');
+
+profileChangeButton.addEventListener('click', () => {
+    profileChangeForm.classList.toggle('show');
+    prefChangeForm.classList.remove('show');
+})
+
+preferenceChangeButton.addEventListener('click', () => {
+    prefChangeForm.classList.toggle('show');
+    profileChangeForm.classList.remove('show');
+})

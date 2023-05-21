@@ -54,6 +54,8 @@
     background-color: var(--color-divider-primary, inherit);
 }
 
+.matches__profile-change-container,
+.matches__profile-preference-container,
 .matches__logout-container {
     background-color: var(--color--background-primary, inherit);
     padding-right: 16px;
@@ -76,12 +78,21 @@
     min-height: 52px;
 }
 
+.matches__profile-preference-container,
+.matches__logout-container {
+    margin-top:  20px;
+}
+
+.matches__profile-change-wrapper,
+.matches__profile-preference-wrapper,
 .matches__logout-wrapper {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
+.matches__profile-change,
+.matches__preference-change,
 .matches__logout {
     text-overflow: ellipsis;
     overflow: hidden;

@@ -84,10 +84,10 @@ function loadUsers() {
 }
 
 function updateCard(card, user) {
-    card.querySelector('img').src = "../" + user.userPhoto;
-    card.querySelector('h2').textContent = user.userName;
-    card.querySelector('h3').textContent = user.userInfo;
-    card.querySelector('p').textContent = user.userAge;
+    card.querySelector('img').src = "../" + user.userPhoto; 
+    card.querySelector('h2').textContent = user !== undefined ? user.userName : "На сегодня профили закончились!";
+    card.querySelector('h3').textContent = user !== undefined ? user.userInfo : "";
+    card.querySelector('p').textContent = user !== undefined ? user.userAge : "";
 }
 
 function showNextCard() {

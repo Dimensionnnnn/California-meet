@@ -3,7 +3,7 @@
     <main class="main">
         <div class="container">
             <div class="main__wrapper">
-                <div class="main__text">Свайп</div>
+                <div class="main__text">Присоединиться</div>
                 <button class="main__button" id="button-reg" onclick="showModalRegWindow()">
                     <div class="main__button-text">
                         Создать аккаунт

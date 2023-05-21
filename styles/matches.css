@@ -5,6 +5,7 @@
 @import url(./components/matches/matches-user-info.css);
 @import url(./components/matches/matches-users-chat.css);
 @import url(./components/matches/matches-user-profile.css);
+@import url(./components/matches/matches-form.css);
 
 .matches__body {
     overscroll-behavior-y: none;
